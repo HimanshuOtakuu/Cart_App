@@ -46,9 +46,10 @@ class App extends React.Component {
       .onSnapshot ((snapshot) => {
         console.log(snapshot);
 
-        snapshot.docs.map ((doc) => {
-          console.log(doc.data());
-        })
+        // snapshot.docs.map ((doc) => {
+        //   console.log(doc.data());
+        //   return '';
+        // })
 
         const products = snapshot.docs.map ((doc) => {
           const data = doc.data();
@@ -107,7 +108,6 @@ class App extends React.Component {
     })
   }
   handleDeleteProduct = (id) => {
-    const { products } = this.state;
 
     const docRef = this.db.collection('products').doc(id);
 
